@@ -94,7 +94,7 @@ type Client struct {
 // it already exists. If successful, methods on the returned File can be
 // used for I/O; the associated file descriptor has mode O_RDWR.
 func (c *Client) Create(path string) (*File, error) {
-	return c.open(path, flags(os.O_RDWR|os.O_CREATE|os.O_TRUNC))
+	return c.open(path, flags(os.O_WRONLY|os.O_CREATE|os.O_TRUNC))
 }
 
 const sftpProtocolVersion = 3 // http://tools.ietf.org/html/draft-ietf-secsh-filexfer-02
